@@ -7,7 +7,7 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path.match(/items/)
-      item_name = req.path.split("/items/*").last #turn /items/Sorry into Sorry
+      item_name = req.path.split("/items/").last #turn /items/Sorry into Sorry
       item = @@items.find{|i| i.name == item_name}
       puts item_name
       if item.nil?
